@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+				id="cordova-plugin-isekai-fake-splash"
+				version="1.0.0">
+
+	<name>Isekai Fake Splash</name>
+
+	<description>
+		Add splash to Cordova
+	</description>
+
+	<author>Hyperzlib</author>
+
+	<license>MIT</license>
+
+	<keywords>splash</keywords>
+
+	<engines>
+		<engine name="cordova" version=">=8.0.0"/>
+	</engines>
+
+	<js-module src="www/IsekaiFakeSplash.js" name="IsekaiFakeSplash">
+		<clobbers target="window.plugins.isekaiFakeSplash"/>
+	</js-module>
+
+	<!-- android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="IsekaiFakeSplash">
+				<param name="android-package" value="cn.isekai.bbs.IsekaiFakeSplash"/>
+        		<param name="onload" value="true" />
+			</feature>
+		</config-file>
+		<edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
+			<activity android:theme="@style/AppTheme.Splash" />
+		</edit-config>
+		<source-file src="src/android/IsekaiFakeSplash.java" target-dir="src/cn/isekai/bbs"/>
+		<resource-file src="src/android/anim/fade_in.xml" target="res/anim/fade_in.xml" />
+		<resource-file src="src/android/anim/fade_out.xml" target="res/anim/fade_out.xml" />
+		<resource-file src="src/android/values/color.xml" target="res/values/color.xml" />
+		<resource-file src="src/android/values/styles.xml" target="res/values/styles.xml" />
+		<resource-file src="src/android/drawable/splash_layout.xml" target="res/drawable/splash_layout.xml" />
+		<resource-file src="src/android/drawable/splash.png" target="res/drawable/splash.png" />
+	</platform>
+</plugin>
