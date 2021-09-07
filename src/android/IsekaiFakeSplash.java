@@ -40,7 +40,6 @@ public class IsekaiFakeSplash extends CordovaPlugin {
                             cordova.getActivity().runOnUiThread(() -> {
                                 Activity activity = cordova.getActivity();
                                 Window window = activity.getWindow();
-                                activity.setTheme(R.style.AppTheme_Default);
                                 window.setBackgroundDrawable(
                                         cordova.getContext().getDrawable(android.R.drawable.screen_background_dark));
                             });
