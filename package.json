@@ -11,5 +11,9 @@
     "cordova-android"
   ],
   "author": "Hyperzlib",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperzlib/cordova-plugin-isekai-fake-splash.git"
+  }
 }

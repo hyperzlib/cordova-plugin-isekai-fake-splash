@@ -12,6 +12,10 @@
 	<author>Hyperzlib</author>
 
 	<license>MIT</license>
+	
+	<repo>https://github.com/hyperzlib/cordova-plugin-isekai-fake-splash.git</repo>
+	
+	<issue>https://github.com/hyperzlib/cordova-plugin-isekai-fake-splash/issues</issue>
 
 	<keywords>splash</keywords>
 
