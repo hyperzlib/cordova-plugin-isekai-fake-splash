@@ -1,9 +1,8 @@
 package cn.isekai.bbs;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
@@ -28,21 +27,31 @@ public class IsekaiFakeSplash extends CordovaPlugin {
         if ("hide".equals(action)) {
             if (!isHide) {
                 cordova.getActivity().runOnUiThread(() -> {
-                    Animation enterAnimate = AnimationUtils.loadAnimation(cordova.getContext(), R.anim.fade_in);
+                    Animation enterAnimate = AnimationUtils.loadAnimation(cordova.getContext(),
+                            cordova.getContext().getResources().getIdentifier("fade_in",
+                                    "anim",
+                                    cordova.getContext().getPackageName()));
+
                     enterAnimate.setAnimationListener(new Animation.AnimationListener() {
                         @Override
                         public void onAnimationStart(Animation animation) {
                             webView.getView().setAlpha(1);
                         }
 
+                        @SuppressLint("UseCompatLoadingForDrawables")
                         @Override
                         public void onAnimationEnd(Animation animation) {
                             cordova.getActivity().runOnUiThread(() -> {
                                 Activity activity = cordova.getActivity();
                                 Window window = activity.getWindow();
                                 window.setBackgroundDrawable(
-                                        cordova.getContext().getDrawable(android.R.drawable.screen_background_dark));
-                            });
+                                        activity.getDrawable(
+                                                activity.getResources()
+                                                        .getIdentifier("screen_background_dark",
+                                                                "anim",
+                                                                cordova.getContext().getPackageName())
+                                        ));
+                                });
                         }
 
                         @Override
