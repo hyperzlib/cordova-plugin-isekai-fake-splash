@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-isekai-fake-splash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add splash to cordova",
   "main": "index.js",
   "scripts": {
